@@ -1,0 +1,302 @@
+<!-- This file needs to be edited by the lab developer to suit the requirements of their lab in particular.-->
+<!-- Add class="default" to include any element as it is specified in default.html. Do not include class="default" to the elements that you want to edit -->
+<!DOCTYPE html>
+<html>
+    <head><script type="text/javascript" src="a.js"></script>
+        <title>Test</title>
+    </head>
+
+    <body>
+        <div id="experiment">
+            <!-- The Experiment Document Container-->
+            <!-- The lab Header contains the logo and the name of the lab, usually displayed on the top of the page-->
+
+            <header class="default" id="experiment-header">
+                <div class="logo" id="experiment-header-logo">
+                    <!-- Enclose the logo image of your lab or write it in text-->
+                    <img src="../images/logo.jpg"></div>
+
+                <div class="heading" id="experiment-header-heading">
+                    <!-- Write the name of your lab and link it to the home 
+          page of your lab (h1 tag is preferred while writing your 
+          lab name)-->
+                    <a href="../index.html">Dsp lab</a>
+                </div><!-- Add any additional element you want to add to the lab 
+        header, For example : Help (Enclosing them with suitable 
+        div is recommended)-->
+            </header><!-- The lab article is the main content area where all the experiment content sits-->
+
+            <article id="experiment-article">
+                <!-- The lab article has an header, optional navigational 
+        menu, number of sections, an optional sidebar and a closing 
+        footer-->
+
+                <div class="breadcrumb" id="experiment-article-breadcrumb"></div>
+
+                <header class="heading" id="experiment-article-heading">
+                    Study of sampling theorem, effect of undersampling.
+                </header><!-- Navigation menu is useful to organize the view of multiple sections inside the article-->
+
+                <nav class="default" id="experiment-article-navigation">
+                    <ul id="experiment-article-navigation-menu">
+                        <!-- The menu can be dynamically generated to contain 
+              the headings of your sections or instead write the 
+              menu items of your choice individually enclosedu in 
+              &lt;li&gt; tag as shown below-->
+                    </ul>
+                </nav><!-- All the sections of your lab or experiment can be 
+          enclosed together with a div element as shown below-->
+
+                <div id="experiment-article-sections">
+                    <!------------------------------- First section of the article---------------------------------->
+
+                    <section id="experiment-article-section-1">
+                        <div class="icon" id="experiment-article-section-1-icon">
+                            <!-- Enclose the icon image of your lab -->
+                            <img src="../images/introduction.jpg"></div>
+                        <!-- The heading for the section can be enclosed in a div tag. -->
+
+                        <div class="heading" id="experiment-article-section-1-heading">
+                            Introduction
+                        </div><!-- Write the section content inside a paragraph element, You can also include images with &lt;img&gt; tag -->
+
+                        <div class="content" id="experiment-article-section-1-content">                            
+                            <p>This experiment enables a student to learn
+                            <ul>
+                                <li>How to view the real life analog signal with an oscilloscope.</li>
+                                <li>How to set the amplitude, frequency and phase of the signal source.</li>
+                                <li>How to set the sampling frequency of the source such that the signal is exactly reconstructed from its samples.</li>
+                            </ul>
+
+
+                            The principal objective of this experiment is to understand the principle of sampling of continuous time analog signal.</p>                            
+                        </div>
+                    </section>
+                    <!-------------------------- Second section of the article---------------------------------------->
+
+                    <section id="experiment-article-section-2">
+                        <div class="icon" id="experiment-article-section-2-icon">
+                            <!-- Enclose the icon image of your lab. -->
+                            <img src="../images/theory.jpg"></div>
+                        <!-- The heading for the section can be enclosed in a div tag. -->
+
+                        <div class="heading" id="experiment-article-section-2-heading">
+                            Theory
+                        </div><!-- Write the section content inside a paragraph element, we can also include images with &lt;img&gt; tag -->
+
+                        <div class="content" id="experiment-article-section-2-content">                            
+                            <p class="heading-content">
+                                The real life signals that we  encounter in our day to day basis are mostly analog signals.
+                                These signals are defined continuously in time and have infinite range of amplitude values.
+                                In order to process these signals to obtain meaningful information, they need to be converted
+                                to a format which is easily handled by computing resources like microprocessors, computers etc...
+                                The first step in this process is to convert the real-time signal into discrete-time signals.
+                                Discrete-time signals are defined only at a particular set of time instances. They can thus be
+                                represented as sequence of numbers with continuous range of values.
+                            </p>
+                            <p class="heading-content">
+                                The process of converting an analog signal (denoted as x(t)) to a digital signal (denoted as x(n))
+                                is called the analog-to-digital conversion (referred to as digitization), usually performed by an
+                                analog-to-digital converter (ADC). Here t is the continuous time variable and n is the sequence order.
+                                In many applications after the processing of the digital signal is performed, x(n) needs to be 
+                                converted back to analog signal x(t) before it is applied to appropriate analog device. 
+                                This reverse process is called digital-to-analog conversion and is typically performed 
+                                using a digital-to-analog converter (DAC).
+                            </p>
+                            <p>The typical block diagram of an ADC is shown in Fig. 1 below.</p>
+                            <p><center><img style="width:355px;height:199px;" src="../images/img/expt1Fig1.png"> </p>  
+                                
+                            <p class="heading-content">
+                                The process of digitization consists of first sampling (digitization in time)
+                                and quantization (digitization in amplitude). In this experiment we will study 
+                                and understand the principle of sampling, while the principle of quantization 
+                                will be studied in the next experiment. The sampling process depicts an analog
+                                signal as a sequence of values. The basic sampling function can be carried out 
+                                with an ideal 'sample-and-hold' circuit which maintains the sampled signal until
+                                next sample is taken. An ideal sampler can be considered as a switch that periodically
+                                opens and closes every T seconds. The sampling frequency (fs in Hertz) is thus defined 
+                                as</p>
+                            <p style="text-align:center">`f_s=1/T      ....(1)`</p>
+                            <p class="heading-content">The sampled discrete time signal x(nT) , n=0,1,2,.... of the original continuous time
+                            signal x(t) is shown in Fig. 2 below.</p><center><img src="../images/img/expt1Fig2.png" 
+                                                                                  style="height:80%;width:50%;" align="center" /></center>
+                            <p class="heading-content">In order to represent an analog signal x(t) by a discrete-time signal x(nT) accurately,
+                                so that the analog signal can be exactly reconstructed back from the discrete-time signal, 
+                                the sampling frequency fs must be at least twice the maximum frequency component (fM)
+                                of the original analog signal. Thus we have,<p style="text-align:center">`f_s>=2f_m  ....(2)`</p>
+                            <p class="heading-content">The minimum sampling rate is called the Nyquist rate and the above Sampling Theorem is
+                                called the Shannon's Sampling Theorem. When an analog signal is sampled at fs , 
+                                frequency components higher than fs/2 fold back into the frequency range [0, fs/2].
+                                This folded frequency components overlap with the original frequency components in the
+                                same range and leads to an undesired effect known as aliasing. In this case, the original
+                                analog signal cannot be recovered from the sample data. </p>
+                            <p class="heading-content">Consider an analog signal of frequency 1Hz as shown in Fig. 3(a) below. The sampling 
+                                frequency is 4Hz. The sampled signal is shown in Fig. 3(b), Note that an exact 
+                                reconstruction of the missing samples is obtained so long as the Shannon's Sampling 
+                                Theorem is satisfied.
+                            <p class="content" ><center><img style="width:638px;height:225px;" src="../images/exp1/abc1.jpg" alt="" />
+                            <p class="heading-content">Now let's consider, the analog signal of frequency 5Hz as shown in Fig. 4(a) below.
+                                The sampling frequency is same as above, i.e. 4Hz. The sampled signal is shown in
+                                Fig. 4(b), Note that the reconstruction of the original analog signal is not possible 
+                                since the sampling frequency does not satisfy Shannon's Sampling Theorem. In this case
+                                the reconstructed signal has a frequency of 1Hz. The signal of 5Hz is folded back as 1Hz, 
+                                into the range determined by the sampling frequency leading to the problem of aliasing.
+                            <p class="content" ><center><img style="width:676px;height:254px;" src="../images/exp1/abc2.png" alt="" />
+                        </div>
+                    </section>
+                    <!-------------------------- Third section of the article---------------------------------------->
+
+                    <section id="experiment-article-section-3">
+                        <div class="icon" id="experiment-article-section-3-icon">
+                            <!-- Enclose the icon image of your lab. -->
+                            <img src="../images/objective.jpg"></div>
+
+                        <div class="heading" id="experiment-article-section-3-heading">
+                            procedure
+                        </div>
+
+                        <div ALIGN="justify" class="content" id="experiment-article-section-3-content">                            
+                            <p class="heading-content"> 1.Click on the Experiment tab <b><u><font size="5">SIMULATOR</font></u></b>It will open the workspace.</p>
+                            <p class="heading-content">2.See the movie in experiment page by pressing  help button <b><u><font size="5">?</font></u></b> to understand how the 
+                                following steps are to be executed.</p>
+                            <p class="heading-content">3.In the workspace click on Browse Blocks<b><u><font size="5">BROWSE BLOCKS</font></u></b>.to understand how the 
+                                following steps are to be executed.</p>
+                            <p class="heading-content">4.Drag Sinewave Generator in the left side of the workspace. Click it to parameterize the sinusoidal signal output. 
+                                Make amplitude = 3V, frequency = 19 Hz, phase=0 angle.</p><center><img src="../images/exp1/fig-1.png" style="height:50%;width:50%;" align="center" /></center>
+                            <p class="heading-content">5.Drag Sampling Block in the workplace. Place it after Sinewave Generator to its right. Click it to parameterize. 
+                                Make sampling frequency =40 Hz. It will show no. of sample as 80 for display. The display is conformed 
+                                for 2 sec.</p><center><img src="../images/exp1/fig-2.png" style="height:50%;width:50%;" align="center" /></center>
+                            <p class="heading-content">6.Drag the scope in the workspace after sampler to its right.</p>
+                            <p class="heading-content">7.For making connection, take the cursor to the node provided in each block where form 
+                                connection is to be made.
+                                Click on it a circle will appear in the background. If pointed properly a yellowish tinge will appear click at that 
+                                time to enable connection.</p><center><img src="../images/exp1/fig-3.png" style="height:50%;width:50%;" align="center" /></center>
+                            <p class="heading-content">8.Connect sinewave generator O/P to I/O of sampler by clicking at both blocks and a link will appear.</p>
+                            <p class="heading-content">9.Similarly connect sampler O/P to one of the I/O of scope.</p>
+                            <p class="heading-content">10.Click somewhere in the middle of the link connecting signal generator & sampler. Keep clicking at bends till you 
+                                connect it to the other input of the scope.</p><center><img src="../images/exp1/fig-4.png" style="height:50%;width:50%;" align="center" /></center>
+                            <p class="heading-content">11.Click on the scope, a new window will appear. It shows that the sinusoidal signal as well as sample in red 
+                                dots.</p><center><img src="../images/exp1/fig-5.png" style="height:50%;width:50%;" align="center" /></center>
+                            <p class="heading-content">12.Move the cursor from one sample to another by draging the slider provide along the x-axis and you will find sample 
+                                values in the boxes at bottom left part of the window. Note the first 15 values in a note book. This 15 values will go 
+                                as table 1 in your report.</p>
+                            <p class="heading-content">13.In this window, you can change parameters like frequency, amplitude and phase angle of sinusoidal signal generator &
+                                sampling frequency.</p>
+                            <p class="heading-content">14.Change the sinusoidal signal generator O/P amplitude to 1.5V and note 1st 15 values. This will form Table 2 in your 
+                                report. In your observation & discussion part of the reporting, you have to compare Table 1 and Table 2.</p>
+                            <p class="heading-content">15.Change sampling frequency to 43 Hz and amplitude of sinusoidal signal generator at 1V. Note 
+                                first 15 readings to
+                                from Table 3. Compare Table 1 and Table 3</p>
+                            <p class="heading-content">16.Make sampling frequency 40Hz, amplitude of sinusoidal signal generator 10V, phase=30. 
+                                Table 1st reading to from 
+                                Table 4. Compare Table 1 and Table 4.</p>
+                            <p class="heading-content">17.<b>Under sampling:</b>Change the Sinusoidal signal generator frequency 50Hz, amplitude 1.4V,
+                                phase=0. Sampling frequency= 40 Hz.
+                                Take 1st 15 readings. This will from Table 5. Compare Table 1 and Table 5.</p>
+                            <p class="heading-content">18.Change the Sinusoidal signal generator frequency=30Hz, Amplitude=1V, Phase=0, sampling 
+                                frequency = 40Hz. Take 15 
+                                readings. This will produce Table 6. Compare Table 1 and Table 6</p>
+                            <p class="heading-content">19.Optional: Select sinusoidal signal generator frequency and sampling frequency simultaneously
+                                to form more Table, 
+                                Table 7 and Table 8 which leads to nyquist rate from observation phenomenon.</p>
+                            <p class="heading-content">20.Click on Report Generation button. The reporting window will appear. Here on by clicking 
+                                Add Table , you can add 
+                                tables. In each tables, by clicking add row will be able to add row.</p>
+                            <p class="heading-content">21.For each table make a screenshot of your plots by taking print screen and edit in any
+                                image editor to upload a 
+                                image for each table.</p>
+                            <p class="heading-content">22.The observation and discussion box, appears at the end. Then click Yes I have finished
+                                my Experiment button to submit 
+                                your report.</p>
+                            <p class="heading-content">23.<b>Note:</b> if at any time during making circuit if you face any problem please use reset
+                                button to erase the circuit and 
+                                draw the circuit freshly.</p>
+                        </div>
+
+                    </section>
+                    <!-------------------------- Fourth section of the article---------------------------------------->
+
+                    <section id="experiment-article-section-4">
+                        <div class="icon" id="experiment-article-section-4-icon">
+                            <!-- Enclose the icon image of your lab.-->
+                            <img src="../images/simulation.jpg"></div>
+
+                        <div class="heading" id="experiment-article-section-4-heading">
+                            simulator
+                        </div>
+
+                        <div class="content" id="experiment-article-section-4-content">                            
+                            <div align="left">
+
+                                <img src="../images/img/help.jpg" align="right"  style="cursor:pointer;width:30px;height:30px" title="Help" onClick="window.open('help.html', 'helpWindow', 'width=750,height=580,screenX=300,screenY=120')" />
+
+
+                            </div>
+
+ <div align="center"><p class="faqs">Study of sampling theorem, effect of undersampling
+                            </p>
+     &nbsp;                    
+     <br> <a href="./Exp1S/Exp1_S.html" target="_blank">Click here for the javascript simulator</a></div> <br> &nbsp;
+
+                            <div align="center">
+
+                                <object width="700px" height="550px">
+                                    <param name="movie" value="expt.swf">
+                                    <embed src="expt.swf" width="700px" height="550px">
+                                    </embed>
+                                </object>
+
+                            </div>
+
+                        </div>
+                    </section>
+                    <!-------------------------- Fifth section of the article---------------------------------------->
+
+                    
+
+                    <!-------------------------- Sixth section of the article---------------------------------------->
+
+                   
+                    <!-------------------------- Seventh section of the article---------------------------------------->
+
+                    <section id="experiment-article-section-7">
+                        <div class="icon" id="experiment-article-section-7-icon">
+                            <!-- Enclose the icon image of your lab.-->
+                            <img src="../images/quizzes.jpg"></div>
+
+                        <div class="heading" id="experiment-article-section-7-heading">
+                            Quizzes
+                        </div>
+
+                        <div class="content" id="experiment-article-section-7-content">                            
+                            <p>Quizzes content.....</p>                           
+                        </div>
+                    </section>
+                    <!-------------------------- Eight section of the article---------------------------------------->
+
+                    <section id="experiment-article-section-8">
+                        <div class="icon" id="experiment-article-section-8-icon">
+                            <!-- Enclose the icon image of your lab.-->
+                            <img src="../images/reference.jpg"></div>
+
+                        <div class="heading" id="experiment-article-section-8-heading">
+                            Reference
+                        </div>
+
+                        <div class="content" id="experiment-article-section-8-content">  
+<p style="text-align:left; font-size:18px; font-weight:bold; padding-bottom: 10px;">Books:</p>                          
+                            <ul style="text-align:left; padding-bottom: 10px;"><li>Discrete-Time Signal Processing, A. V. Oppenheim and R. W. Schafer, Englewood Cliffs, NJ: Prentice Hall, 1989.</li>
+                            <li>2.C. E. Shannon, "Communication in the presence of noise," Proc. Institute of Radio Engineers, vol. 37, no. 1, pp. 10-21, Jan 1949.</li>
+                            <li>3.H. Nyquist, "Certain topics in telegraph transmission theory," Trans. AIEE, vol. 47, pp. 617-644, Apr 1928.</li></ul>
+<p style="text-align:left; font-size:18px; font-weight:bold; padding-bottom: 10px;">Video Lectures:</p>
+<ul style="text-align:left; padding-bottom: 10px;">
+                                <li><a href="http://nptel.ac.in/courses/117102060/1" target="_blank">Digital Signal Processing Introduction</a></li>
+                            </ul>
+                        </div>
+                    </section>                   
+
+                </div>
+            </article>
+        </div>
+    </body>
+</html>
